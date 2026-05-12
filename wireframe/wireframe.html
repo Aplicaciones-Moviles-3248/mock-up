@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courtly Mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./wireframe.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="mobile-bottom-nav hidden" id="sidebar">
+            <nav class="menu" id="menu"></nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="screen active auth-screen" id="screen-welcome">
+                <div class="auth-layout">
+                    <img src="assets/logo-courtly.jpeg" alt="Courtly logo" class="hero-logo">
+                    <p class="eyebrow">Mockup alineado al backend actual</p>
+                    <h2>Courtly para jugadores, entrenadores y administradores</h2>
+
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" id="showLogin">Iniciar sesion</button>
+                        <button class="auth-tab" id="showRegister">Crear cuenta</button>
+                    </div>
+
+                    <div class="auth-panel active" id="loginPanel">
+                        <div class="form-stack">
+                            <label class="field">
+                                <span>Correo</span>
+                                <input type="email" id="loginEmail" value="sofia@courtly.demo">
+                            </label>
+                            <label class="field">
+                                <span>Contrasena</span>
+                                <input type="password" id="loginPassword" value="123456">
+                            </label>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="primary-button" id="loginButton">Iniciar sesion</button>
+                        </div>
+                        <div class="inline-feedback hidden" id="loginFeedback"></div>
+                        <p class="helper-copy">Demo: `sofia@courtly.demo`, `lucia@courtly.demo` y `admin@courtly.demo` con contrasena `123456`.</p>
+                    </div>
+
+                    <div class="auth-panel" id="registerPanel">
+                        <div class="form-stack">
+                            <label class="field">
+                                <span>Nombre completo</span>
+                                <input type="text" id="registerName" value="Lucia Torres">
+                            </label>
+                            <label class="field">
+                                <span>Correo</span>
+                                <input type="email" id="registerEmail" value="lucia.nueva@courtly.demo">
+                            </label>
+                            <label class="field">
+                                <span>Contrasena</span>
+                                <input type="password" id="registerPassword" value="123456">
+                            </label>
+                            <label class="field">
+                                <span>Tipo de cuenta</span>
+                                <select id="registerRole">
+                                    <option value="athlete">Jugador</option>
+                                    <option value="coach">Entrenador</option>
+                                    <option value="admin">Administrador</option>
+                                </select>
+                            </label>
+                            <div class="form-stack hidden" id="coachRegisterFields">
+                                <label class="field">
+                                    <span>Especialidad</span>
+                                    <input type="text" id="registerSpecialty" value="Padel competitivo">
+                                </label>
+                                <label class="field">
+                                    <span>Experiencia</span>
+                                    <input type="text" id="registerExperience" value="8 anos">
+                                </label>
+                            </div>
+                        </div>
+                        <button class="primary-button full-width" id="createAccount">Crear cuenta</button>
+                        <div class="inline-feedback hidden" id="registerFeedback"></div>
+                        <p class="helper-copy">El mockup cubre cuentas de jugador, entrenador y administracion del sistema segun los roles reales del backend.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-athlete-dashboard">
+                <div class="athlete-hero">
+                    <div class="screen-heading athlete-hero-heading">
+                    <div>
+                        <p class="eyebrow">Jugador</p>
+                        <h2 id="athleteGreeting">Hola, Sofia</h2>
+                        <p class="section-subtitle">Tus operaciones y pagos pendientes</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="icon-button top-icon-button" id="toggleNotifications" aria-label="Abrir notificaciones">
+                            <span class="menu-icon" id="notificationsBell">🔔</span>
+                            <span id="notificationBadge" class="notification-badge">0</span>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                <div class="overview-grid athlete-hero-grid" id="athleteOverview"></div>
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Mis operaciones</h3>
+                            <button class="text-button" data-nav-target="screen-courts">Nueva reserva</button>
+                        </div>
+                        <div id="nextBookings"></div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Siguiente paso</h3>
+                        <button class="text-button" data-nav-target="screen-booking">Gestionar</button>
+                    </div>
+                    <div id="nextReservationHighlight"></div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Canchas recomendadas</h3>
+                        <button class="text-button" data-nav-target="screen-courts">Explorar</button>
+                    </div>
+                    <div class="mini-card-grid" id="athleteRecommendations"></div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Historial de pagos</h3>
+                        <button class="text-button" data-nav-target="screen-payments-history">Ver todo</button>
+                    </div>
+                    <div id="athletePaymentsPreview"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-courts">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Busqueda de canchas</p>
+                        <h2>Encuentra tu cancha</h2>
+                        <p class="section-subtitle">Explora canchas con imagen, precio por hora y horarios disponibles</p>
+                    </div>
+                </div>
+                <div class="panel courts-filter-panel">
+                    <div class="form-stack courts-filter-stack">
+                        <label class="field">
+                            <span>Ubicacion</span>
+                            <select id="locationFilter"></select>
+                        </label>
+                        <div class="filter-row">
+                            <label class="field">
+                                <span>Deporte</span>
+                                <select id="sportFilter"></select>
+                            </label>
+                            <label class="field">
+                                <span>Precio maximo</span>
+                                <select id="priceFilter"></select>
+                            </label>
+                        </div>
+                        <label class="field">
+                            <span>Horario</span>
+                            <select id="timeFilter"></select>
+                        </label>
+                        <button class="primary-button full-width courts-filter-button" id="applyFilters">Aplicar filtros</button>
+                        <div class="inline-feedback hidden" id="courtSearchFeedback"></div>
+                    </div>
+                </div>
+                <div class="card-grid courts-premium-grid" id="courtsGrid"></div>
+            </section>
+
+            <section class="screen app-screen" id="screen-court-detail">
+                <div id="courtDetailContent"></div>
+            </section>
+
+            <section class="screen app-screen" id="screen-booking">
+                <div class="screen-heading">
+                    <div>
+                        <button class="back-link" id="backFromBooking">← Regresar</button>
+                        <p class="eyebrow">Reserva simple de cancha</p>
+                        <h2>Crear booking</h2>
+                        <p class="section-subtitle">Primero valida la cancha elegida y luego define fecha y horario antes de confirmar.</p>
+                    </div>
+                </div>
+                <div class="booking-layout">
+                    <div class="panel booking-summary">
+                        <div class="panel-header">
+                            <h3>Paso 1 · Revisa la reserva</h3>
+                        </div>
+                        <div id="bookingSummary"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Paso 2 · Selecciona fecha</h3>
+                        </div>
+                        <div class="chips" id="dateOptions"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Paso 3 · Selecciona horario</h3>
+                        </div>
+                        <div class="chips" id="timeOptions"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Paso 4 · Confirma el booking</h3>
+                        </div>
+                        <button class="primary-button full-width" id="confirmBooking">Crear booking</button>
+                        <div class="inline-feedback hidden" id="bookingFeedback"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Bookings y estados</h3>
+                        </div>
+                        <div id="bookingsManager"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-payment">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Pago de operacion</p>
+                        <h2>Pagar booking o training session</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div id="paymentSummary"></div>
+                    <div class="form-stack">
+                        <label class="field">
+                            <span>Metodo de pago</span>
+                            <select id="paymentMethod">
+                                <option value="visa">Visa</option>
+                                <option value="mastercard">Mastercard</option>
+                                <option value="declined">Simular rechazo</option>
+                            </select>
+                        </label>
+                        <button class="primary-button full-width" id="processPayment">Procesar pago</button>
+                        <div class="inline-feedback hidden" id="paymentFeedback"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-payments-history">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Payments</p>
+                        <h2>Historial de pagos del usuario</h2>
+                        <p class="section-subtitle">Pagos completados y pendientes de bookings y training sessions</p>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div id="athletePaymentsDetail"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-rate-court">
+                <div class="screen-heading">
+                    <div>
+                        <button class="back-link" id="backFromReview">← Regresar</button>
+                        <p class="eyebrow">Resenas validas</p>
+                        <h2>Valorar servicios completados</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="form-stack">
+                        <label class="field">
+                            <span>Operacion completada</span>
+                            <select id="reviewBookingSelect"></select>
+                        </label>
+                        <label class="field">
+                            <span>Calificacion</span>
+                            <select id="reviewScore">
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                        </label>
+                        <label class="field">
+                            <span>Comentario</span>
+                            <textarea id="reviewComment" rows="4">Excelente iluminacion y buen mantenimiento.</textarea>
+                        </label>
+                        <button class="primary-button full-width" id="publishReview">Publicar resena</button>
+                        <div class="inline-feedback hidden" id="reviewFeedback"></div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Resenas publicadas desde operaciones reales</h3>
+                    </div>
+                    <div id="courtReviewsList"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-matches">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">USM09 y USM10</p>
+                        <h2>Partidos y comunidad</h2>
+                    </div>
+                    <button class="text-button" data-nav-target="screen-create-match">Crear partido</button>
+                </div>
+                <div class="card-grid" id="matchesGrid"></div>
+            </section>
+
+            <section class="screen app-screen" id="screen-create-match">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">USM09</p>
+                        <h2>Crear partido</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="form-stack">
+                        <label class="field">
+                            <span>Titulo</span>
+                            <input type="text" id="matchTitle" value="Pichanga sabatina">
+                        </label>
+                        <label class="field">
+                            <span>Cancha</span>
+                            <select id="matchCourt"></select>
+                        </label>
+                        <div class="filter-row">
+                            <label class="field">
+                                <span>Fecha</span>
+                                <select id="matchDate"></select>
+                            </label>
+                            <label class="field">
+                                <span>Hora</span>
+                                <select id="matchTime"></select>
+                            </label>
+                        </div>
+                        <label class="field">
+                            <span>Invitar contactos</span>
+                            <select id="matchInvitees">
+                                <option value="2">2 contactos</option>
+                                <option value="4">4 contactos</option>
+                                <option value="0">Sin invitaciones</option>
+                            </select>
+                        </label>
+                        <button class="primary-button full-width" id="createMatchButton">Crear e invitar</button>
+                        <div class="inline-feedback hidden" id="matchFeedback"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-coaches">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Busqueda de entrenadores</p>
+                        <h2>Coaches y disponibilidades</h2>
+                        <p class="section-subtitle">Explora perfiles, revisa disponibilidad y luego crea la training session.</p>
+                    </div>
+                </div>
+                <div class="card-grid" id="coachesGrid"></div>
+            </section>
+
+            <section class="screen app-screen" id="screen-coach-detail">
+                <div class="screen-heading">
+                    <div>
+                        <button class="back-link" id="backFromCoachDetail">← Regresar</button>
+                        <p class="eyebrow">Perfil del coach</p>
+                        <h2>Detalle profesional</h2>
+                    </div>
+                </div>
+                <div id="coachDetailContent"></div>
+            </section>
+
+            <section class="screen app-screen" id="screen-session-request">
+                <div class="screen-heading">
+                    <div>
+                        <button class="back-link" id="backFromSessionRequest">← Regresar</button>
+                        <p class="eyebrow">Training session</p>
+                        <h2>Solicitar sesion con entrenador</h2>
+                        <p class="section-subtitle">La solicitud debe incluir coach, disponibilidad y cancha</p>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div id="sessionRequestSummary"></div>
+                    <div class="form-stack">
+                        <label class="field">
+                            <span>Cancha para la sesion</span>
+                            <select id="sessionCourtSelect"></select>
+                        </label>
+                        <label class="field">
+                            <span>Disponibilidad del coach</span>
+                            <select id="sessionAvailabilitySelect"></select>
+                        </label>
+                        <label class="field">
+                            <span>Objetivo de la sesion</span>
+                            <textarea id="sessionGoal" rows="4">Trabajo tecnico con correccion de saque y desplazamiento.</textarea>
+                        </label>
+                        <button class="primary-button full-width" id="createTrainingSession">Crear solicitud</button>
+                        <div class="inline-feedback hidden" id="sessionRequestFeedback"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-notifications">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Eventos del sistema</p>
+                        <h2>Historial de notificaciones</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div id="notificationsHistory"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-notification-detail">
+                <div class="screen-heading">
+                    <div>
+                        <button class="back-link" id="backFromNotificationDetail">← Regresar</button>
+                        <p class="eyebrow">USM18</p>
+                        <h2>Detalle de notificacion</h2>
+                    </div>
+                </div>
+                <div class="panel" id="notificationDetailContent"></div>
+            </section>
+
+            <section class="screen app-screen" id="screen-coach-dashboard">
+                <div class="coach-hero">
+                    <div class="screen-heading coach-hero-heading">
+                        <div>
+                            <p class="eyebrow">Entrenador</p>
+                            <h2>Gestion de agenda y sesiones</h2>
+                            <p class="section-subtitle">Controla disponibilidad, solicitudes, pagos, reseñas y metricas desde un solo tablero.</p>
+                        </div>
+                        <div class="header-actions">
+                            <span class="status-pill accent">USM11-USM17</span>
+                        </div>
+                    </div>
+                    <div id="coachCommandCenter"></div>
+                </div>
+                <div class="overview-grid coach-hero-grid" id="coachOverview"></div>
+                <div class="panel coach-priority-panel" id="coachPriorityPanel"></div>
+                <div class="content-grid coach-dashboard-grid">
+                    <div class="panel coach-feed-panel">
+                        <div class="panel-header">
+                            <h3>Proximas sesiones y agenda</h3>
+                            <button class="text-button" data-nav-target="screen-requests">Ver flujo completo</button>
+                        </div>
+                        <div id="coachTodayBoard"></div>
+                    </div>
+                </div>
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Disponibilidad publicada</h3>
+                            <button class="text-button" data-nav-target="screen-availability">Editar</button>
+                        </div>
+                        <div id="availabilitySummary"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Training sessions</h3>
+                            <button class="text-button" data-nav-target="screen-requests">Gestionar</button>
+                        </div>
+                        <div id="requestsList"></div>
+                    </div>
+                </div>
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Pagos recibidos</h3>
+                            <button class="text-button" data-nav-target="screen-payments-received">Ver historial</button>
+                        </div>
+                        <div id="paymentsPreview"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Resenas recibidas</h3>
+                            <button class="text-button" data-nav-target="screen-reviews">Ver todas</button>
+                        </div>
+                        <div id="reviewsList"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-admin-dashboard">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Administrador</p>
+                        <h2>Control del sistema</h2>
+                        <p class="section-subtitle">Gestion de canchas, usuarios y roles segun el backend actual</p>
+                    </div>
+                </div>
+                <div class="overview-grid" id="adminOverview"></div>
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Courts administrables</h3>
+                            <button class="text-button" data-nav-target="screen-admin-courts">Gestionar</button>
+                        </div>
+                        <div id="adminCourtsPreview"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Usuarios y roles</h3>
+                            <button class="text-button" data-nav-target="screen-iam">Abrir IAM</button>
+                        </div>
+                        <div id="adminIamPreview"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-admin-courts">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Courts BC</p>
+                        <h2>Administrar canchas</h2>
+                        <p class="section-subtitle">Solo el rol ADMIN puede crear, editar o eliminar canchas.</p>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="form-stack">
+                        <label class="field">
+                            <span>Cancha a editar</span>
+                            <select id="adminCourtSelect"></select>
+                        </label>
+                        <label class="field">
+                            <span>Nombre</span>
+                            <input type="text" id="adminCourtName" value="">
+                        </label>
+                        <label class="field">
+                            <span>Ubicacion</span>
+                            <input type="text" id="adminCourtLocation" value="">
+                        </label>
+                        <label class="field">
+                            <span>Tipo</span>
+                            <input type="text" id="adminCourtSport" value="">
+                        </label>
+                        <label class="field">
+                            <span>Precio por hora</span>
+                            <input type="number" id="adminCourtPrice" value="">
+                        </label>
+                        <label class="field">
+                            <span>URL de imagen</span>
+                            <input type="text" id="adminCourtImage" value="">
+                        </label>
+                        <div class="action-row">
+                            <button class="primary-button" id="saveAdminCourt">Guardar cancha</button>
+                            <button class="secondary-button" id="createAdminCourt">Nueva cancha</button>
+                        </div>
+                        <button class="text-button danger-text-button" id="deleteAdminCourt">Eliminar cancha</button>
+                        <div class="inline-feedback hidden" id="adminCourtFeedback"></div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Catalogo actual</h3>
+                    </div>
+                    <div id="adminCourtsList"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-iam">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">IAM BC</p>
+                        <h2>Usuarios y roles</h2>
+                        <p class="section-subtitle">Vista del bounded context de autenticacion y autorizacion</p>
+                    </div>
+                </div>
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Usuarios</h3>
+                        </div>
+                        <div id="iamUsersList"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Roles</h3>
+                        </div>
+                        <div id="iamRolesList"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-availability">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Availability</p>
+                        <h2>Publicar disponibilidad real</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="form-stack">
+                        <div class="filter-row">
+                            <label class="field">
+                                <span>Dia</span>
+                                <select id="availabilityDay">
+                                    <option>Lunes</option>
+                                    <option>Martes</option>
+                                    <option>Miercoles</option>
+                                    <option>Jueves</option>
+                                    <option>Viernes</option>
+                                    <option>Sabado</option>
+                                </select>
+                            </label>
+                            <label class="field">
+                                <span>Horario</span>
+                                <input type="text" id="availabilityTime" value="7:00 PM - 9:00 PM">
+                            </label>
+                        </div>
+                        <button class="primary-button full-width" id="saveAvailability">Guardar disponibilidad</button>
+                        <div class="inline-feedback hidden" id="availabilityFeedback"></div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Bloques activos</h3>
+                    </div>
+                    <div id="availabilityDetail"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-requests">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Estados del training session</p>
+                        <h2>Aceptar, rechazar o completar</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div id="requestsManager"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-payments-received">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Pagos por sesiones</p>
+                        <h2>Pagos recibidos</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div id="paymentsDetail"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-analytics">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Analytics derivado</p>
+                        <h2>Estadisticas de rendimiento</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Resumen mensual</h3>
+                    </div>
+                    <div id="analyticsDetail"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-reviews">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Reviews del coach</p>
+                        <h2>Resenas recibidas</h2>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div id="reviewsDetail"></div>
+                </div>
+            </section>
+
+            <section class="screen app-screen" id="screen-profile">
+                <div class="screen-heading">
+                    <div>
+                        <p class="eyebrow">Perfil y datos persistidos</p>
+                        <h2>Editar perfil</h2>
+                    </div>
+                </div>
+                <div class="profile-layout">
+                    <div class="profile-card" id="profileCard"></div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Actualizar datos</h3>
+                        </div>
+                        <div class="form-stack" id="profileForm"></div>
+                        <button class="primary-button full-width" id="saveProfile">Guardar cambios</button>
+                        <div class="inline-feedback hidden" id="profileFeedback"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Actividad reciente</h3>
+                        </div>
+                        <div id="profileActivity"></div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Sesion</h3>
+                        </div>
+                        <button class="secondary-button full-width" id="logoutButton">Cerrar sesion</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal hidden" id="modal">
+        <div class="modal-card">
+            <button class="icon-button modal-close" id="closeModal" aria-label="Cerrar modal">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <div class="floating-overlay hidden" id="notificationsOverlay">
+        <div class="floating-panel" id="notificationsDrawer">
+            <div class="panel-header">
+                <h3>Notificaciones recientes</h3>
+                <button class="icon-button drawer-close-button" id="closeNotifications" aria-label="Cerrar notificaciones">&times;</button>
+            </div>
+            <div id="notificationsDrawerList"></div>
+        </div>
+    </div>
+
+    <script src="./wireframe.js"></script>
+</body>
+</html>
+
