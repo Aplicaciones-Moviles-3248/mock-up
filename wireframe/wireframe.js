@@ -17,10 +17,10 @@ const state = {
     notificationBackTarget: "screen-athlete-dashboard",
     paymentTarget: { type: null, id: null },
     filters: {
-        location: "Todas",
-        sport: "Todos",
-        price: "Todos",
-        time: "Todos"
+        location: "[OPCION]",
+        sport: "[OPCION]",
+        price: "[OPCION]",
+        time: "[OPCION]"
     }
 };
 
@@ -34,65 +34,65 @@ const data = {
     courts: [
         {
             id: 1,
-            name: "Arena Norte",
-            location: "San Isidro",
-            sport: "Futbol 7",
+            name: "[CANCHA 1]",
+            location: "[UBICACION 1]",
+            sport: "[DEPORTE 1]",
             pricePerHour: 120,
             imageUrl: "assets/arena-norte.png",
-            summary: "Cancha de futbol 7 con iluminacion LED, vestidores y estacionamiento.",
-            address: "Av. Del Parque 180, San Isidro",
+            summary: "[SUBTITULO]",
+            address: "[SUBTITULO]",
             status: "available",
             slots: ["6:00 PM", "7:00 PM", "8:00 PM"],
             rating: 4.8
         },
         {
             id: 2,
-            name: "Green Point Club",
-            location: "Miraflores",
-            sport: "Padel",
+            name: "[CANCHA 2]",
+            location: "[UBICACION 2]",
+            sport: "[DEPORTE 2]",
             pricePerHour: 95,
             imageUrl: "assets/green-point-club.png",
-            summary: "Cancha techada para padel con zona lounge y acceso rapido.",
-            address: "Calle Bellavista 222, Miraflores",
+            summary: "[SUBTITULO]",
+            address: "[SUBTITULO]",
             status: "limited",
             slots: ["7:00 PM", "8:00 PM"],
             rating: 4.9
         },
         {
             id: 3,
-            name: "Urban Court",
-            location: "Surco",
-            sport: "Basket",
+            name: "[CANCHA 3]",
+            location: "[UBICACION 3]",
+            sport: "[DEPORTE 3]",
             pricePerHour: 110,
             imageUrl: "assets/bascket.png",
-            summary: "Piso reacondicionado y tableros profesionales para entrenamientos tecnicos.",
-            address: "Jr. Monte Azul 410, Surco",
+            summary: "[SUBTITULO]",
+            address: "[SUBTITULO]",
             status: "available",
             slots: ["5:00 PM", "7:00 PM"],
             rating: 4.6
         },
         {
             id: 4,
-            name: "Campo 360",
-            location: "La Molina",
-            sport: "Tenis",
+            name: "[CANCHA 4]",
+            location: "[UBICACION 4]",
+            sport: "[DEPORTE 4]",
             pricePerHour: 88,
             imageUrl: "assets/campo-360.png",
-            summary: "Cancha de arcilla con vestidores y zona de espera.",
-            address: "Av. La Hacienda 90, La Molina",
+            summary: "[SUBTITULO]",
+            address: "[SUBTITULO]",
             status: "busy",
             slots: [],
             rating: 4.4
         },
         {
             id: 5,
-            name: "Match Hub",
-            location: "Barranco",
-            sport: "Voley",
+            name: "[CANCHA 5]",
+            location: "[UBICACION 5]",
+            sport: "[DEPORTE 5]",
             pricePerHour: 75,
             imageUrl: "assets/match-hub.png",
-            summary: "Cancha de arena fina con duchas y snack bar.",
-            address: "Pasaje Costa Verde 12, Barranco",
+            summary: "[SUBTITULO]",
+            address: "[SUBTITULO]",
             status: "available",
             slots: ["8:00 PM", "9:00 PM"],
             rating: 4.7
@@ -101,26 +101,26 @@ const data = {
     coaches: [
         {
             id: 1,
-            name: "Lucia Torres",
-            specialty: "Padel competitivo",
+            name: "[COACH 1]",
+            specialty: "[SUBTITULO]",
             rating: 4.9,
-            bio: "Entrenadora enfocada en tecnica, lectura de juego y sesiones individuales.",
+            bio: "[SUBTITULO]",
             imageUrl: "https://tse1.mm.bing.net/th/id/OIP.hCfHyL8u8XAbreXuaiTMQgHaHZ?rs=1&pid=ImgDetMain&o=7&rm=3"
         },
         {
             id: 2,
-            name: "Carlos Vega",
-            specialty: "Preparacion futbol 7",
+            name: "[COACH 2]",
+            specialty: "[SUBTITULO]",
             rating: 4.8,
-            bio: "Trabaja fundamentos tacticos y preparacion fisica corta para equipos amateurs.",
+            bio: "[SUBTITULO]",
             imageUrl: "https://b2472105.smushcdn.com/2472105/wp-content/uploads/2022/12/Foto-Perfil-Profesional-Cristy-Palacios-dic.-02-2022-1024x1024.jpg?lossy=1&strip=1&webp=1"
         },
         {
             id: 3,
-            name: "Mariana Solis",
-            specialty: "Tecnica de tenis",
+            name: "[COACH 3]",
+            specialty: "[SUBTITULO]",
             rating: 4.7,
-            bio: "Sesiones de correccion de golpe, desplazamiento y construccion de punto.",
+            bio: "[SUBTITULO]",
             imageUrl: "https://androidayuda.com/wp-content/uploads/2023/01/foto-perfil-1024x683.jpg"
         }
     ],
@@ -162,12 +162,12 @@ const data = {
             availabilityId: 103,
             date: "13 Mar",
             time: "8:00 PM",
-            goal: "Sesion tecnica de saque",
+            goal: "[SUBTITULO]",
             status: "COMPLETED",
             paymentStatus: "PAID",
             price: 140,
             receipt: "TS-2026-9001",
-            playerName: "Sofia Ramirez",
+            playerName: "[NOMBRE]",
             reviewPublished: true
         },
         {
@@ -177,12 +177,12 @@ const data = {
             availabilityId: 102,
             date: "16 Mar",
             time: "6:00 PM",
-            goal: "Entrenamiento tactico de dobles",
+            goal: "[SUBTITULO]",
             status: "PENDING",
             paymentStatus: "PENDING",
             price: 150,
             receipt: null,
-            playerName: "Sofia Ramirez",
+            playerName: "[NOMBRE]",
             reviewPublished: false
         },
         {
@@ -192,50 +192,50 @@ const data = {
             availabilityId: 101,
             date: "18 Mar",
             time: "8:00 PM",
-            goal: "Trabajo de correccion de desplazamiento",
+            goal: "[SUBTITULO]",
             status: "ACCEPTED",
             paymentStatus: "PENDING",
             price: 140,
             receipt: null,
-            playerName: "Sofia Ramirez",
+            playerName: "[NOMBRE]",
             reviewPublished: false
         }
     ],
     matches: [
         {
             id: 1,
-            title: "Pichanga nocturna",
+            title: "[PARTIDO 1]",
             courtId: 1,
             date: "14 Mar",
             time: "9:00 PM",
             capacity: 10,
-            participants: ["Sofia Ramirez", "Diego Rojas", "Luis Garcia"],
+            participants: ["[USUARIO 1]", "[USUARIO 2]", "[USUARIO 3]"],
             joined: false,
-            level: "Intermedio",
+            level: "[SUBTITULO]",
             status: "OPEN"
         },
         {
             id: 2,
-            title: "Dobles de padel",
+            title: "[PARTIDO 2]",
             courtId: 2,
             date: "15 Mar",
             time: "6:00 PM",
             capacity: 4,
-            participants: ["Lucia Torres", "Andrea Salazar", "Carlos Vega", "Paola Rios"],
+            participants: ["[USUARIO 1]", "[USUARIO 2]", "[USUARIO 3]", "[USUARIO 4]"],
             joined: false,
-            level: "Avanzado",
+            level: "[SUBTITULO]",
             status: "FULL"
         },
         {
             id: 3,
-            title: "Reto de basket",
+            title: "[PARTIDO 3]",
             courtId: 3,
             date: "17 Mar",
             time: "5:30 PM",
             capacity: 8,
-            participants: ["Sofia Ramirez", "Javier Leon", "Camila Perez", "Mateo Silva"],
+            participants: ["[USUARIO 1]", "[USUARIO 2]", "[USUARIO 3]", "[USUARIO 4]"],
             joined: true,
-            level: "Mixto",
+            level: "[SUBTITULO]",
             status: "OPEN"
         }
     ],
@@ -243,30 +243,30 @@ const data = {
         {
             id: 1,
             role: "athlete",
-            title: "Booking completado",
-            message: "Arena Norte quedo disponible para resena.",
+            title: "[TITULO]",
+            message: "[SUBTITULO]",
             time: "Hace 2 h",
-            detail: "Tu booking simple en Arena Norte termino correctamente. Ahora puedes dejar una resena valida de la cancha.",
+            detail: "[SUBTITULO]",
             relatedScreen: "screen-rate-court",
             read: false
         },
         {
             id: 2,
             role: "athlete",
-            title: "Training session aceptada",
-            message: "Lucia Torres aprobo tu solicitud del 16 Mar.",
+            title: "[TITULO]",
+            message: "[SUBTITULO]",
             time: "Hace 35 min",
-            detail: "La solicitud con Lucia Torres paso a estado ACCEPTED. Ya puedes entrar a la pantalla de pagos para completar la operacion.",
+            detail: "[SUBTITULO]",
             relatedScreen: "screen-payment",
             read: false
         },
         {
             id: 3,
             role: "coach",
-            title: "Nueva solicitud recibida",
-            message: "Sofia Ramirez pidio una sesion tecnica.",
+            title: "[TITULO]",
+            message: "[SUBTITULO]",
             time: "Hace 20 min",
-            detail: "Tienes una nueva training session en estado PENDING que incluye cancha, horario y objetivo de la sesion.",
+            detail: "[SUBTITULO]",
             relatedScreen: "screen-requests",
             read: false
         }
@@ -277,9 +277,9 @@ const data = {
             sourceType: "BOOKING",
             sourceId: 5001,
             courtId: 1,
-            author: "Sofia Ramirez",
+            author: "[NOMBRE]",
             score: 5,
-            comment: "Buen mantenimiento y acceso rapido."
+            comment: "[SUBTITULO]"
         }
     ],
     coachReviews: [
@@ -288,34 +288,34 @@ const data = {
             sourceType: "TRAINING_SESSION",
             sourceId: 9001,
             coachId: 1,
-            author: "Sofia Ramirez",
+            author: "[NOMBRE]",
             score: 5,
-            comment: "Correcciones claras y una sesion muy bien estructurada."
+            comment: "[SUBTITULO]"
         }
     ],
     athleteProfile: {
-        name: "Sofia Ramirez",
-        role: "Jugador",
+        name: "[NOMBRE]",
+        role: "[ROL]",
         email: "sofia@courtly.demo",
-        phone: "999 123 456",
-        favoriteSport: "Padel",
+        phone: "[SUBTITULO]",
+        favoriteSport: "[SUBTITULO]",
         imageUrl: "assets/image.png"
     },
     coachProfile: {
-        name: "Lucia Torres",
-        role: "Entrenador",
+        name: "[NOMBRE]",
+        role: "[ROL]",
         email: "lucia@courtly.demo",
-        phone: "987 654 321",
-        specialty: "Padel competitivo",
-        experience: "8 anos",
+        phone: "[SUBTITULO]",
+        specialty: "[SUBTITULO]",
+        experience: "[SUBTITULO]",
         imageUrl: "https://tse1.mm.bing.net/th/id/OIP.hCfHyL8u8XAbreXuaiTMQgHaHZ?rs=1&pid=ImgDetMain&o=7&rm=3"
     },
     adminProfile: {
-        name: "Carla Admin",
-        role: "Administrador",
+        name: "[NOMBRE]",
+        role: "[ROL]",
         email: "admin@courtly.demo",
-        phone: "900 777 222",
-        focus: "Gobierno del catalogo y control IAM",
+        phone: "[SUBTITULO]",
+        focus: "[SUBTITULO]",
         imageUrl: "assets/logo-courtly.jpeg"
     },
     iamUsers: [
@@ -350,25 +350,25 @@ const svgIcons = {
 
 const menuByRole = {
     athlete: [
-        { id: "screen-athlete-dashboard", label: "Inicio", icon: svgIcons.home, center: false },
-        { id: "screen-courts", label: "Canchas", icon: svgIcons.court, center: false },
-        { id: "screen-coaches", label: "Coaches", icon: svgIcons.coach, center: true },
-        { id: "screen-matches", label: "Partidos", icon: svgIcons.matches, center: false },
-        { id: "screen-profile", label: "Perfil", icon: svgIcons.profile, center: false }
+        { id: "screen-athlete-dashboard", label: "[MENU]", icon: svgIcons.home, center: false },
+        { id: "screen-courts", label: "[MENU]", icon: svgIcons.court, center: false },
+        { id: "screen-coaches", label: "[MENU]", icon: svgIcons.coach, center: true },
+        { id: "screen-matches", label: "[MENU]", icon: svgIcons.matches, center: false },
+        { id: "screen-profile", label: "[MENU]", icon: svgIcons.profile, center: false }
     ],
     coach: [
-        { id: "screen-coach-dashboard", label: "Inicio", icon: svgIcons.home, center: false },
-        { id: "screen-availability", label: "Agenda", icon: svgIcons.calendar, center: false },
-        { id: "screen-requests", label: "Sesiones", icon: svgIcons.booking, center: true },
-        { id: "screen-analytics", label: "Metricas", icon: svgIcons.analytics, center: false },
-        { id: "screen-profile", label: "Perfil", icon: svgIcons.profile, center: false }
+        { id: "screen-coach-dashboard", label: "[MENU]", icon: svgIcons.home, center: false },
+        { id: "screen-availability", label: "[MENU]", icon: svgIcons.calendar, center: false },
+        { id: "screen-requests", label: "[MENU]", icon: svgIcons.booking, center: true },
+        { id: "screen-analytics", label: "[MENU]", icon: svgIcons.analytics, center: false },
+        { id: "screen-profile", label: "[MENU]", icon: svgIcons.profile, center: false }
     ],
     admin: [
-        { id: "screen-admin-dashboard", label: "Inicio", icon: svgIcons.home, center: false },
-        { id: "screen-admin-courts", label: "Courts", icon: svgIcons.court, center: false },
-        { id: "screen-iam", label: "IAM", icon: svgIcons.shield, center: true },
-        { id: "screen-notifications", label: "Avisos", icon: svgIcons.bell, center: false },
-        { id: "screen-profile", label: "Perfil", icon: svgIcons.profile, center: false }
+        { id: "screen-admin-dashboard", label: "[MENU]", icon: svgIcons.home, center: false },
+        { id: "screen-admin-courts", label: "[MENU]", icon: svgIcons.court, center: false },
+        { id: "screen-iam", label: "[MENU]", icon: svgIcons.shield, center: true },
+        { id: "screen-notifications", label: "[MENU]", icon: svgIcons.bell, center: false },
+        { id: "screen-profile", label: "[MENU]", icon: svgIcons.profile, center: false }
     ]
 };
 
@@ -617,6 +617,7 @@ function renderAll() {
     renderIamViews();
     renderProfile();
     bindStaticNavButtons();
+    normalizeVisibleCopy();
 }
 
 function renderAthleteOverview() {
@@ -2600,6 +2601,24 @@ function reviewCardTemplate(author, roleLabel, score, comment, coachRole = false
 function renderStars(score) {
     const rounded = Math.round(score);
     return `${"*".repeat(rounded)}${"-".repeat(5 - rounded)}`;
+}
+
+function normalizeVisibleCopy() {
+    const replaceText = (selector, value) => {
+        document.querySelectorAll(selector).forEach((node) => {
+            if (node.childElementCount === 0 && /[A-Za-zÁ-ÿ]/.test(node.textContent || "")) {
+                node.textContent = value;
+            }
+        });
+    };
+
+    replaceText("button", "[BOTON]");
+    replaceText("h1, h2, h3, h4", "[TITULO]");
+    replaceText(".eyebrow, .section-subtitle, .helper-copy, .empty-copy, .review-time", "[SUBTITULO]");
+    replaceText("label span, .summary-line span, .field-box span, .feature-data-chip span, .review-role, .status-pill", "[SUBTITULO]");
+    replaceText("option", "[OPCION]");
+    replaceText("p", "[SUBTITULO]");
+    replaceText("strong", "[TITULO]");
 }
 
 window.closeModalFromAction = closeModal;
